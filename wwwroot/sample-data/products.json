@@ -1,0 +1,34 @@
+[
+  {
+    "id": "5C50938D-577C-4C12-B8CB-D2BF22842E5A",
+    "name": "Blazor Server .NET 6 Fundamentals",
+    "description": "A beginner's book of Blazor Server website development in .NET 6.",
+    "price": 23.99,
+    "rating": 2,
+    "img": "https://img.freepik.com/free-photo/wide-angle-shot-single-tree-growing-clouded-sky-during-sunset-surrounded-by-grass_181624-22807.jpg?w=1800&t=st=1681412162~exp=1681412762~hmac=c5a9a38c9c0966348c4a33e00dc68ca0e89696e0e95851027e1bb1b31cfd8b18"
+  },
+  {
+    "id": "4C18E6CE-BA0A-46D2-88AA-A6C48F0ACB0C",
+    "name": "Blazor WebAssembly .NET 6 Fundamentals",
+    "description": "A beginner's book of Blazor WebAssembly website development in .NET 6.",
+    "price": 23.99,
+    "rating": 2,
+    "img": "https://img.freepik.com/free-photo/silhouette-trees-near-water-cloudy-sky_181624-5564.jpg?w=1800&t=st=1681412555~exp=1681413155~hmac=485c522caf733f4cab4145f53a80a6cdb11ade0aa3f8071734a98208b273f788"
+  },
+  {
+    "id": "C468DAAE-5190-423E-8ACA-500D21F0F65D",
+    "name": "Blazor Server .NET 6 Advanced",
+    "description": "A good book of Blazor Server website development in .NET 6.",
+    "price": 39.99,
+    "rating": 2,
+    "img": "https://img.freepik.com/free-photo/beautiful-landscape-sea-ocean-leisure-travel-vacation_74190-8012.jpg?w=1800&t=st=1681412556~exp=1681413156~hmac=bbbed0c39a10b72e257f7e29a3c1811443a2d7ef4355d4d2173ee715d0e3e902"
+  },
+  {
+    "id": "EDCEF58E-EF65-4F53-9D1A-CF33AC6F6371",
+    "name": "Blazor WebAssembly .NET 6 Advanced",
+    "description": "A good book of Blazor WebAssembly website development in .NET 6.",
+    "price": 39.99,
+    "rating": 2,
+    "img": "https://img.freepik.com/free-photo/beautiful-landscape-sea-ocean-leisure-travel-vacation_74190-8012.jpg?w=1800&t=st=1681412556~exp=1681413156~hmac=bbbed0c39a10b72e257f7e29a3c1811443a2d7ef4355d4d2173ee715d0e3e902"
+  }
+]

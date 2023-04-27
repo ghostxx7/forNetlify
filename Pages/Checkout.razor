@@ -1,0 +1,15 @@
+﻿@page "/checkout"
+@using BlazorApp1.States;
+@inject CartState CartState
+
+<h3>Checkout</h3>
+
+<span>You have @CartState.SelectedItems.Count item(s) in your cart.</span>
+@foreach (var selectedItem in CartState.SelectedItems)
+{
+    <ProductDisplay Product="selectedItem" />
+}
+
+@code {
+
+}

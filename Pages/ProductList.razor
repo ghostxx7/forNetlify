@@ -1,0 +1,132 @@
+﻿@page "/product-list"
+@using BlazorApp1.Models;
+@using MudBlazor
+@inject HttpClient Http
+
+<h3>ProductList</h3>
+
+
+
+<MudCarousel Class="mud-width-full" Style="height:200px;" ShowArrows="@arrows" ShowBullets="@bullets" EnableSwipeGesture="@enableSwipeGesture" AutoCycle="@autocycle" TData="object">
+    <MudCarouselItem Transition="transition" Color="@Color.Primary">
+        <div class="d-flex" style="height:100%" Color="@Color.Primary">
+            <MudImage ObjectFit="ObjectFit.Fill" ObjectPosition="ObjectPosition.Center"
+                      Src=""
+                      Width="200" Height="150" Alt="cool" Elevation="25" Class="rounded-lg ma-4" />
+            <MudPaper Class="d-flex flex-column align-center justify-center mud-width-full py-8">
+                <MudText Typo="Typo.h6" Align="Align.Center">A beginner's book of Blazor Server website development in .NET 6.</MudText>
+            </MudPaper>            
+        </div>
+    </MudCarouselItem>
+    <MudCarouselItem Transition="transition" Color="@Color.Primary">
+        <div class="d-flex" style="height:100%" Color="@Color.Primary">
+            <MudImage ObjectFit="ObjectFit.Fill" ObjectPosition="ObjectPosition.Center"
+                      Src=""
+                      Width="200" Height="150" Alt="cool" Elevation="25" Class="rounded-lg ma-4" />
+            <MudPaper Class="d-flex flex-column align-center justify-center mud-width-full py-8">
+                <MudText Typo="Typo.h6" Align="Align.Center">A beginner's book of Blazor Server website development in .NET 6.</MudText>
+            </MudPaper>            
+        </div>
+    </MudCarouselItem>
+    <MudCarouselItem Transition="transition" Color="@Color.Primary">
+        <div class="d-flex" style="height:100%" Color="@Color.Primary">
+            <MudImage ObjectFit="ObjectFit.Fill" ObjectPosition="ObjectPosition.Center"
+                      Src=""
+                      Width="200" Height="150" Alt="cool" Elevation="25" Class="rounded-lg ma-4" />
+            <MudPaper Class="d-flex flex-column align-center justify-center mud-width-full py-8">
+                <MudText Typo="Typo.h6" Align="Align.Center">A beginner's book of Blazor Server website development in .NET 6.</MudText>
+            </MudPaper>
+        </div>
+    </MudCarouselItem>
+</MudCarousel>
+
+
+@code {
+    private bool arrows = true;
+    private bool bullets = true;
+    private bool enableSwipeGesture = true;
+    private bool autocycle = true;
+    private Transition transition = Transition.Slide;
+
+    private MudCarousel<string> _carousel;
+    private bool _arrows = true;
+    private bool _bullets = true;
+    private bool _enableSwipeGesture = true;
+    private bool _autocycle = true;
+    private IList<Product> _source = new List<Product>();
+    private int selectedIndex = 2;
+
+    //private async Task AddAsync()
+    //{
+    //    _source.Add($"Item {_source.Count + 1}");
+    //    await Task.Delay(1);
+    //    _carousel.MoveTo(_source.Count - 1);
+    //}
+
+    private async Task DeleteAsync(int index)
+    {
+        if (_source.Any())
+        {
+            _source.RemoveAt(index);
+            await Task.Delay(1);
+            _carousel.MoveTo(System.Math.Max(System.Math.Min(index, _source.Count - 1), 0));
+        }
+
+    }
+}
+
+@code {
+    public List<Product> Products { get; set; } = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        Products = await Http.GetFromJsonAsync<List<Product>>("sample-data/products.json") ?? new();
+        foreach (var item in Products)
+        {
+            _source.Add(item);
+        }
+    }
+}
+
+@foreach (var product in Products)
+{
+    <ProductDisplay Product="product" DisplayBuyButton="true" />
+}
+<h4>--------------------------------</h4>
+@*<MudDataGrid Items="Products">
+    <Columns>
+        <PropertyColumn Property="x => x.Id" Title="Nr" />
+        <PropertyColumn Property="x => x.Name" />
+            <PropertyColumn Property="x => x.Description" />
+        <PropertyColumn Property="x => x.Price" Title="Price" />
+    </Columns>
+</MudDataGrid>
+
+<h4>--------------------------------</h4>
+@*<MudGrid>
+    <MudItem xs="12">
+        <MudPaper Class="d-flex align-center justify-center mud-width-full py-8">xs=12</MudPaper>
+    </MudItem>
+    <MudItem xs="6">
+        <MudPaper Class="d-flex align-center justify-center mud-width-full py-8">xs=6</MudPaper>
+    </MudItem>
+    <MudItem xs="6">
+        <MudPaper Class="d-flex align-center justify-center mud-width-full py-8">xs=6</MudPaper>
+    </MudItem>
+    <MudItem xs="3">
+        <MudPaper Class="d-flex align-center justify-center mud-width-full py-8">xs=3</MudPaper>
+    </MudItem>
+    <MudItem xs="3">
+        <MudPaper Class="d-flex align-center justify-center mud-width-full py-8">xs=3</MudPaper>
+    </MudItem>
+    <MudItem xs="3">
+        <MudPaper Class="d-flex align-center justify-center mud-width-full py-8">xs=3</MudPaper>
+    </MudItem>
+    <MudItem xs="3">
+        <MudPaper Class="d-flex align-center justify-center mud-width-full py-8">xs=3</MudPaper>
+    </MudItem>
+</MudGrid>*@
+
+
+
+

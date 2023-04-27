@@ -1,0 +1,30 @@
+﻿
+<div class="collapse">
+    <nav class="flex-column">
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span> Home
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="product-list">
+                <span class="oi oi-list-rich" aria-hidden="true"></span> ProductList
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="checkout">
+                <span class="oi oi-infinity" aria-hidden="true"></span> Checkout
+            </NavLink>
+        </div>        
+    </nav>
+</div>
+@code {
+    private bool collapseNavMenu = true;
+
+    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+}
